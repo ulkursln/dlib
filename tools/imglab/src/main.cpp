@@ -1,4 +1,21 @@
 
+/*
+Sample function calls: call in order
+
+1)---- Define training images
+-c training_folders/Interviewer/1/training_1_interviewer.xml training_folders/Interviewer/1/images
+
+2)----Draw face boundary box
+training_folders/Interviewer/1/training_1_interviewer.xml
+
+3)----Define test images
+-c training_folders/Interviewer/1/testing_1_interviewer.xml training_folders/Interviewer/1/images_test
+
+4)----Call detector for training and test trained model (dikkat detectorun ba??na -- laz?m, tek karakter tek çizgi uzun word -- ile)
+--detector training_folders/Interviewer/1 training_1_interviewer.xml testing_1_interviewer.xml training_folders/Interviewer/face_detector_1_interviewer.svm
+
+
+*/
 #include "dlib/data_io.h"
 #include "dlib/string.h"
 #include "metadata_editor.h"
@@ -11,6 +28,7 @@
 #include <dlib/svm.h>
 #include <dlib/console_progress_indicator.h>
 #include <dlib/md5.h>
+#include "tools\imglab\build\fhog_object_detector_ex.h"
 
 #include <iostream>
 #include <fstream>
@@ -18,6 +36,7 @@
 #include <set>
 
 #include <dlib/dir_nav.h>
+
 
 
 const char* VERSION = "1.5";
@@ -772,11 +791,12 @@ int main(int argc, char** argv)
         parser.add_option("extract-chips", "Crops out images with tight bounding boxes around each object.  Also crops out "
                                            "many background chips.  All these image chips are serialized into one big data file.  The chips will contain <arg> pixels each.",1);
         parser.add_option("ignore", "Mark boxes labeled as <arg> as ignored.  The resulting XML file is output as a separate file and the original is not modified.",1);
+		parser.add_option("detector", "Call training function", 2);
 
         parser.parse(argc, argv);
 
         const char* singles[] = {"h","c","r","l","files","convert","parts","rmdiff", "rmtrunc", "rmdupes", "seed", "shuffle", "split", "add", 
-                                 "flip", "rotate", "tile", "size", "cluster", "resample", "extract-chips"};
+                                 "flip", "rotate", "tile", "size", "cluster", "resample", "extract-chips", "detector"};
         parser.check_one_time_options(singles);
         const char* c_sub_ops[] = {"r", "convert"};
         parser.check_sub_options("c", c_sub_ops);
@@ -849,6 +869,14 @@ int main(int argc, char** argv)
         parser.check_option_arg_range("size", 10*10, 1000*1000);
         parser.check_option_arg_range("resample", 4, 1000*1000);
         parser.check_option_arg_range("extract-chips", 4, 1000*1000);
+
+
+		if (parser.option("detector"))
+		{
+			fhog_object_detector_ex detectFace;
+			detectFace.detectObject(argc, argv);
+		
+		}
 
         if (parser.option("h"))
         {
@@ -1123,6 +1151,7 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
 }
+
 
 // ----------------------------------------------------------------------------------------
 
