@@ -3,16 +3,17 @@
 Sample function calls: call in order
 
 1)---- Define training images
--c training_folders/Interviewer/1/training_1_interviewer.xml training_folders/Interviewer/1/images
+-c training_folders/1/training.xml training_folders/1/images
 
 2)----Draw face boundary box
-training_folders/Interviewer/1/training_1_interviewer.xml
+training_folders/1/training.xml
 
 3)----Define test images
--c training_folders/Interviewer/1/testing_1_interviewer.xml training_folders/Interviewer/1/images_test
+-c training_folders/1/testing.xml training_folders/1/images_test
 
-4)----Call detector for training and test trained model (dikkat detectorun ba??na -- laz?m, tek karakter tek çizgi uzun word -- ile)
---detector training_folders/Interviewer/1 training_1_interviewer.xml testing_1_interviewer.xml training_folders/Interviewer/face_detector_1_interviewer.svm
+4)----Call detector for training and testing the trained model 
+--detector training_folders/1 training.xml testing.xml training_folders/face_detector.svm
+
 
 
 */
