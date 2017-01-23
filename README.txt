@@ -10,13 +10,16 @@ Instructions to annotate face and to create face-detector:
    Functions must be called in the following order: 
  
       1. Define training images 
-	-c $training-xml $training-images (Eg: -c faceDetector_training/training.xml faceDetector_training/images)
+	-c $training-xml $training-images 
+	(Eg: -c faceDetector_training/training.xml faceDetector_training/images)
       
       2. Draw face boundary box
-         $training-xml (Eg: faceDetector_training/training.xml)
+         $training-xml 
+	 (Eg: faceDetector_training/training.xml)
 	 
       3. Define test images
-         -c $test-xml $test-images (Eg: -c faceDetector_training/test.xml faceDetector_training/images_test)
+         -c $test-xml $test-images 
+	 (Eg: -c faceDetector_training/test.xml faceDetector_training/images_test)
 	 
       4. Call detector for training and then, testing the trained model
         --detector $training-xml $test-xml $face-detector 
