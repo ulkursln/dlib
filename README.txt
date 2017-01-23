@@ -1,21 +1,26 @@
 What's new in modified version
 
 imglab tool is a simple graphical tool for annotating images with object bounding boxes. It is employed for face annotation.
-Additionally, fhog_object_detector class is added under the imglab project. It is used to train face-detector through calling --detector argument.
+Additionally, fhog_object_detector class is added under the imglab project. 
+It is used to train face-detector through calling --detector argument.
   
 	
 Instructions to annotate face and to create face-detector:
  
- Functions must be called in the following order: 
+   Functions must be called in the following order: 
  
- 1. Define training images 
+      1. Define training images 
 	-c $training-xml $training-images (Eg: -c faceDetector_training/training.xml faceDetector_training/images)
- 2. Draw face boundary box
-   $training-xml
- 3. Define test images
-   -c $test-xml $test-images (Eg: -c faceDetector_training/test.xml faceDetector_training/images_test)
- 4. Call detector for training and then, testing the trained model
-   --detector $training-xml $test-xml $face-detector (Eg: --detector faceDetector_training/ training.xml testing.xml faceDetector_training/face_detector.svm)
+      
+      2. Draw face boundary box
+         $training-xml (Eg: faceDetector_training/training.xml)
+	 
+      3. Define test images
+         -c $test-xml $test-images (Eg: -c faceDetector_training/test.xml faceDetector_training/images_test)
+	 
+      4. Call detector for training and then, testing the trained model
+        --detector $training-xml $test-xml $face-detector 
+	(Eg: --detector faceDetector_training/ training.xml testing.xml faceDetector_training/face_detector.svm)
 		
 
 
