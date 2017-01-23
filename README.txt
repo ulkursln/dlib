@@ -1,4 +1,5 @@
 What's new in modified version
+-------------------------------------------------------------------
 
 imglab tool is a simple graphical tool for annotating images with object bounding boxes. 
 It is employed for face annotation.
@@ -6,7 +7,8 @@ Additionally, fhog_object_detector class is added under the imglab project.
 It is used to train face-detector through calling --detector argument.
   
 	
-Instructions to annotate face and to create face-detector:
+Instructions to annotate face and to create face-detector
+-------------------------------------------------------------------
  
    Functions must be called in the following order: 
  
