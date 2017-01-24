@@ -1,3 +1,5 @@
+
+*************************************************MAGiC***********************************************
 What's new in modified version
 -------------------------------------------------------------------
 
@@ -29,6 +31,7 @@ Instructions to annotate face and to create face-detector
 	(Eg: --detector faceDetector_training/ training.xml testing.xml faceDetector_training/face_detector.svm)
 		
 
+*************************************************MAGiC***********************************************
 
                               dlib C++ library
 
