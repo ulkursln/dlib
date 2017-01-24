@@ -1,6 +1,6 @@
 
 /*
-Sample function calls: call in order
+Sample function calls: call in the following order
 
 1)---- Define training images
 -c training_folders/1/training.xml training_folders/1/images
